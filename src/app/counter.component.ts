@@ -7,7 +7,7 @@ import { getCount } from './counter.selectors';
   selector: 'app-counter',
   template: `
     <div>
-      <h1>Counter: {{ counter$ | async }}</h1>
+      <h1>Counter: {{ counter$ }}</h1>
       <button (click)="increment()">Increment</button>
       <button (click)="decrement()">Decrement</button>
       <button (click)="reset()">Reset</button>
@@ -15,7 +15,7 @@ import { getCount } from './counter.selectors';
   `,
 })
 export class CounterComponent {
-  counter$ = this.store.select(getCount);
+  counter$ = this.store;
 
   constructor(private store: Store) {}
 
